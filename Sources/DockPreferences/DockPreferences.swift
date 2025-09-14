@@ -1,5 +1,10 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+//
+//  DockPreferences.swift
+//
+//  Provides an API to load and access macOS Dock preferences
+//  from ~/Library/Preferences/com.apple.dock.plist.
+//
+
 
 import AppKit
 import UniformTypeIdentifiers
