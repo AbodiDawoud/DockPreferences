@@ -18,7 +18,6 @@
 		BDF495152E76265200FA55BA /* Exceptions for "DockExample" folder in "DockExample" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets.xcassets,
 				DockExampleApp.swift,
 			);
 			target = BDF495022E76262800FA55BA /* DockExample */;

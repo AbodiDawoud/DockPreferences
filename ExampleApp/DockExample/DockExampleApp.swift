@@ -31,9 +31,9 @@ struct DockPreferencesDemoView: View {
                         LabeledContent("Minimize Effect", value: prefs.mineffect.rawValue.capitalized)
                         LabeledContent("Orientation", value: prefs.orientation.rawValue.capitalized)
                         
-                        if let trashFull = prefs.trashFull {
+                        if let trashState = prefs.trashFull {
                             LabeledContent("Trash State") {
-                                Image(trashFull ? "Trash_Full" : "Trash_Empty")
+                                trashImageBasedOnState(trashState)
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 30, height: 30)
@@ -144,6 +144,14 @@ struct DockPreferencesDemoView: View {
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+    
+    func trashImageBasedOnState(_ state: Bool) -> Image {
+        let resource = state == true ? kFullTrashIcon : kTrashIcon
+        let fileType = NSFileTypeForHFSTypeCode(OSType(resource))!
+        return Image(
+            nsImage: NSWorkspace.shared.icon(forFileType: fileType)
+        )
     }
 }
 

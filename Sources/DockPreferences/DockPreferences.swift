@@ -182,7 +182,10 @@ public struct DockApp: Codable {
     
     /// Returns an `NSImage` object representing the icon of the app.
     public var appIcon: NSImage? {
-        return NSWorkspace.shared.icon(forFile: tileData.fileURL.path())
+        let path = tileData.fileURL.path()
+        return NSWorkspace.shared.icon(
+            forFile: path.removingPercentEncoding ?? path
+        )
     }
     
     /// Launches the app represented by this item.
